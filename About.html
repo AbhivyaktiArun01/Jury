@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        img {width: 70%;}
+        table{
+            
+            border-style: ridge;
+            border-collapse: collapse;
+        } th, td {
+          border: 1px solid #2F4F4F;
+        }
+        .example {
+  position: relative;
+  padding: 0;
+  width: 300px;
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+
+.content {
+  opacity: 0;
+  font-size: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #FF9933;
+  background-color: rgba(200, 200, 200, 0.5);
+  width: 300px;
+  height: 300px;
+  text-align: center;
+}
+
+.example .content:hover {
+  opacity: 1;
+}
+
+.example .content .text {
+  height: 0;
+  opacity: 1;
+  transition-delay: 0.4s;
+  transition-duration: 9s;
+}
+
+.example .content:hover .text {
+  opacity: 1;
+  transform: translateY(250px);
+  -webkit-transform: translateY(250px);
+}
+        .fa {
+            padding: 10px;
+            font-size: 30px;
+            width: 30%;
+            border-radius: 30%;
+            text-align: center;
+            margin: 2px 2px;
+        }
+        .fa:hover {
+            opacity: 0.7;
+        }
+        .fa-facebook {
+            background: darkblue;
+            color: white;
+        }
+        .fa-google {
+            background: #dd4b39;
+            color: white;
+        }
+        .fa-youtube {
+            background: #bb0000;
+            color: white;
+        }
+        .fa-instagram {
+            background: palevioletred;
+            color: white;
+        }
+        
+        
+a:link, a:visited {
+  background-color: #FF9933;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: legacy;
+}
+
+
+a:hover, a:active {
+  background-color: #900000;
+}
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #900000;
+  font-size: 130PX;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 30PX;
+  padding: 8px 12px;
+  position: absolute;left:6% ;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  background-color: inherit;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  background-color: #FF9933;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bolder;
+  border-radius: 50px;
+  border: none;
+  font-size: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: legacy;
+}
+
+/* Add a background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #900000;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: none;
+  min-width: 160px;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: white;
+  background-color: #900000;
+  border: white solid 3px;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a yellow background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #FF9933;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+        </style>
+        
+    <title>Document</title>
+</head>
+<body>
+    
+<table border="15" bordercolor="#900000" cellspacing="10" cellpadding="10" style="width:100%">
+
+    <tr style="height:200px">
+        <th bgcolor="#2F4F4F" align="left"> <a href="index.html" style="background-color: #2F4F4F;"> <div class="example"><img src="logo.jpg" height="128"> <div class="content">
+            <div class="text">Click here for home page</div></div></div> </a> </th>
+        <th bgcolor="#2F4F4F" colspan="5" style="width:70%">
+            
+        <table align="right" bordercolor="#2F4F4F" border="1" style="width:90%">
+            
+            <tr>
+                <th><a href="About.html" > About</a></th>
+                <th><a href="Progress Folio.html"> ProgressFolio</a></th>
+                <th><div class="navbar">
+
+                  <div class="dropdown">
+                    <button class="dropbtn"> Create Your Regime 
+                      
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="legs.html">Legs</a>
+                      <a href="biceps.html">Biceps</a>
+                      <a href="triceps.html">Triceps</a>
+                      
+                      <a href="shoulder.html">Shoulder</a>
+                      <a href="Back.html">Back</a>
+                      <a href="Chest.html">Chest</a>
+                    </div>
+                  </div>
+                </div></th>
+                <th><a href="Membership.html"> Membership</a></th>
+                <th><a href="Signup.html"> Signup</a></th>
+                <th><a href="Contact.html"> Contact</a></th>
+            </tr>
+        
+        </table>
+        
+    </th>   
+    </tr>
+    <tr style="height:200px">
+        <th colspan="6" style="background-color: #900000; border-color: #900000;">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                  <div class="numbertext">1 / 3</div>
+                  <video width="920" height="380" autoplay role="button">
+                    <source src="video1.mp4" type="video/mp4"> </video>
+                  <div class="text">LEG PRESS</div>
+                </div>
+              
+                <div class="mySlides fade">
+                  <div class="numbertext">2 / 3</div>
+                  <video width="920" height="380" autoplay role="button">
+                    <source src="video2.mp4" type="video/mp4"> </video>
+                  <div class="text">BENCH PRESS</div>
+                </div>
+              
+                <div class="mySlides fade">
+                  <div class="numbertext">3 / 3</div>
+                  <video width="920" height="380" autoplay role="button">
+                    <source src="video3.mp4" type="video/mp4"> </video>
+                  <div class="text">HIP THRUSTS</div>
+                </div>
+              
+                
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+              </div>
+              <br>
+              <div style="text-align:center">
+             <style position: absolute; bottom: 5%; > <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span> </style>
+              </div>  
+          <script>
+              let slideIndex = 1;
+              showSlides(slideIndex);
+              
+              // Next/previous controls
+              function plusSlides(n) {
+                showSlides(slideIndex += n);
+              }
+              
+              // Thumbnail image controls
+              function currentSlide(n) {
+                showSlides(slideIndex = n);
+              }
+              
+              function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";
+                dots[slideIndex-1].className += " active";
+              } 
+            </script> </th> </tr>
+    <tr style="height:700px">
+                    <th colspan="6" style="background-color: #900000; border-color: #900000;">
+                        
+                            <form style="text-align: start; border: 10px #FF9933 solid; color: #FF9933; background-color: #2F4F4F; font-size:x-large; width: 9in; position: absolute; left: 23%; top: 90%; font-family:helvetica;">
+                                <fieldset>
+                                    <legend align="center" style="color: white; border-radius:30%">About Us</legend><br>
+    
+                                    <button style="width: 6in; border-radius: 20%; font-size: 100%; font-family:'Franklin Gothic Medium'; color: white; padding: 5px 10px; text-align: center; background-color: #900000;" type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+You are reading us on (Click here)</button>
+
+<p id="demo"></p>
+<p>At THE GYM, our mission is to provide you with the ultimate fitness experience, one that focuses on your specific fitness needs, helps you achieve the results you are after and invigorates your soul.
+    <br> We guarantee the highest quality equipment and training programs available, an expert staff, special amenities that are often not found in other health clubs, attentive service and truly sophisticated surroundings. Our every Fitness training center is committed to being a unique Fitness training center in india.
+<br>We believe in being different.
+<br>
+We are in New Delhi India Located at Pitampura, Rajouri Garden, Patel Nagar, Vikas Puri, Janak Puri, Model Town, Dayanand Vihar, Punjabi Bagh, Malviya Nagar and Paschim Vihar.</p>
+  </fieldset>
+                            </form></br>
+                             </th> </tr>
+
+    
+                
+            
+       
+    <br><tr style="background-color:#2F4F4F; height: 200px;">
+        <th rowspan="2" colspan="6"><center><h3 style="padding: 10px 20px; font-size:xx-large; color:#900000; background-color:white; width: 10cm; border: #FF9933 solid 4px;"> OUR NETWORKS </h3></center>
+        <a style="font-family:Verdana, Geneva, Tahoma, sans-serif; " class="fa fa-facebook"> f </a>
+        <a class="fa fa-google"> G </a>
+        <a class="fa fa-youtube"> Y </a>
+        <a style="width: 90%; padding: 10px 20px;" class="fa fa-instagram"> I </a> </th>
+        
+    </tr>
+    <tr></tr>
+</table>
+</body>
+</html>
